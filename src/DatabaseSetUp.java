@@ -5,9 +5,7 @@ import java.util.List;
 public class DatabaseSetUp {
 
     private static final String URL = "jdbc:mysql://localhost/";
-    private String dbname = "ca5_joseph_byrne";
-    //private String username = "root";
-    //private String password = "";
+    private String dbname = "moviedatabase";
 
     private static DatabaseSetUp instance;
 
@@ -24,15 +22,13 @@ public class DatabaseSetUp {
         return instance;
     }
 
-    public Connection getConnection()
-    {
-        try{
+    public Connection getConnection() {
+        try {
             Connection conn = DriverManager.getConnection
-                    (URL+dbname);
+                    (URL + dbname);
             return conn;
-        }
-        catch (SQLException e){
-            System.out.println("Unable to connect to database");
+        } catch (SQLException e) {
+            System.out.println("Unable to connect to database: " + e.getMessage());
             return null;
         }
     }
